@@ -1,0 +1,211 @@
+<!--2018 4.18 zl-->
+<style>
+    [nav-view-transition="ios"][nav-view-direction="forward"]{
+        background: inherit!important;
+    }
+</style>
+<ion-view view-title="用户注册" cache-view="false" class="register_title"  style=" background: inherit!important;">
+    <div class="bar bar-header bar-positive top-trans">
+        <div class="button button-icon-sm icon iconfont icon-jiantou-copy-copy" style="z-index:99999;color: #1b82d2;background: #ffffff" ng-click="goNativeBackParams('login', {loginType:'left'})"></div>
+    </div>
+
+
+    <ion-content>
+        <div class="list register-list-inset margin_centent">
+            <!--用户名-->
+            <div class="register_bor write">
+                <i class="icon ion-ios-person displayFlse" style="color:#666; font-size: 22px;"></i>
+                <input type="text"
+                       placeholder="用户名"
+                       style="width: 100%"
+                       ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.username">
+                <i class="icon ion-close-circled input-del-register displayFlse" style="padding-top: 3px;right: 0;font-size: 15px;" ng-click="vm.username=''"></i>
+            </div>
+            <div style="font-size: 10px;color: rebeccapurple;position: relative;padding-top: 10px">
+                用户名要求使用6-20个中、英文、数字及“-”符号
+            </div>
+            <!--推荐码-->
+            <div class="register_bor write">
+                <i class="icon ion-ios-people displayFlse" style="color:#666;font-size: 21px"></i>
+                <input type="text"
+                       placeholder="邀请码"
+                       style="width: 100%"
+                       ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.referralCode">
+                <i class="icon ion-close-circled input-del-register displayFlse" style="padding-top: 3px;right: 0;font-size: 15px;" ng-click="vm.referralCode=''"></i>
+            </div>
+            <!--登录密码-->
+            <div class="register_bor write">
+                <i class="icon ion-android-lock displayFlse" style="color:#666;font-size: 24px"></i>
+                <input type="password"
+                       placeholder="登录密码"
+                       style="width: 100%"
+                       ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.password">
+                <i class="icon ion-close-circled input-del-register displayFlse" style="padding-top: 3px;right: 0;font-size: 15px;" ng-click="vm.password=''"></i>
+            </div>
+            <div style="font-size: 10px;color: rebeccapurple;position: relative;padding-top: 10px">
+                密码要求长度在6-22位字符之间，至少包含数字、字母(区分大小写)、符号(!#$%^&*.~)中的2种
+            </div>
+            <!--验证码-->
+            <div class="register_bor write">
+                <i class="icon iconfont icon-yanzhengma displayFlse" style="font-size: 22px;color:#666;left: -4px;"></i>
+                <input type="text"
+                       placeholder="验证码"
+                       ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.code">
+
+                <img ng-src="{{vm.codeUrl}}" ng-click="vm.getCode()" style="position: absolute;top: 8px;right: 2px;z-index: 99;">
+                <button class="button button-dblue button-small" style="position: absolute;top: 8px;right: 16px;background: #fff;width: 0px;height: 0px"></button>
+                <i class="icon ion-close-circled input-del-register displayFlse" style="position:absolute;padding-top: 3px; right: 95px;font-size: 15px;" ng-click="vm.code=''"></i>
+            </div>
+            <!--手机号-->
+            <div class="register_bor write">
+                <i class="icon fa fa-mobile displayFlse" style="color:#666;font-size: 29px"></i>
+                <input type="tel"
+                       placeholder="手机号"
+                       ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.phone">
+                <button class="button button-dblue button-small" style="position: absolute;top: 12px;right: 06px;font-size: 13px;" ng-click="vm.getCaptcha(true)" ng-disabled="vm.captchaBtn.disabled">{{vm.captchaBtn.label}}</button>
+                <i class="icon ion-close-circled input-del-register displayFlse" style="position:absolute;padding-top: 3px; right: 95px;font-size: 15px;" ng-click="vm.phone=''"></i>
+            </div>
+            <!--动态码-->
+            <div class="register_bor write">
+                <i class="icon ion-ios-email displayFlse" style="color:#666; font-size: 23px"></i>
+                <input type="number"
+                       placeholder="动态码"
+                       style="width: 100%"
+                       ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.captcha">
+                <i class="icon ion-close-circled input-del-register displayFlse" style="position:absolute;padding-top: 3px;right: 0;font-size: 15px;" ng-click="vm.captcha=''"></i>
+            </div>
+            <div style="padding-bottom:0px; padding-top: 10px;  font-size: 12px;color: #4DB179;">
+                我们将对您的个人信息进行保密，请您放心填写。
+            </div>
+            <div>
+                <button class="button button-block button-dblue" ng-click="vm.register()">
+                    注册并登录
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+<!--
+<ion-view view-title="用户注册" cache-view="false" class="ionview_register">
+    <div class="button button-clear icon iconfont icon-jiantou-copy-copy" style="z-index:99999;top:3px;" ng-click="goNativeBackParams('login', {loginType:'left'})">
+    </div>
+    <div class="bar bar-header bar-positive top-trans">
+        <h1 class="title">用户注册</h1>
+    </div>
+    &lt;!&ndash;<ion-nav-bar class="bar-dblue">&ndash;&gt;
+        &lt;!&ndash;<ion-nav-buttons side="left">&ndash;&gt;
+            &lt;!&ndash;<button class="button button-clear icon iconfont icon-jiantou" ui-sref="login"></button>&ndash;&gt;
+        &lt;!&ndash;</ion-nav-buttons>&ndash;&gt;
+    &lt;!&ndash;</ion-nav-bar>&ndash;&gt;
+    <ion-content>
+        <div class="list register-list-inset">
+            <div class="item item-icon-left item-icon-right write">
+                <i class="icon ion-ios-person" style="color:#666;"></i>
+                <input type="text"
+                       placeholder="用户名"
+                       style="width: 100%"
+                       ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.username">
+                <i class="icon ion-close-circled input-del-register" style="padding-top: 3px;right: 20px;font-size: 15px;" ng-click="vm.username=''"></i>
+            </div>
+        </div>
+        <div class="padding" style="font-size: 10px;color: #fff;position: relative;top:40px">
+            用户名要求使用6-20个中、英文、数字及“-”符号
+        </div>
+        <div class="list register-list-inset" style="position: relative;top:25px">
+            <div class="item item-icon-left item-icon-right no-border write">
+                <i class="icon ion-ios-people" style="color:#666;font-size: 29px"></i>
+
+                <input type="text"
+                       placeholder="推荐码"
+                       style="width: 100%"
+                       ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.referralCode">
+                <i class="icon ion-close-circled input-del-register" style="padding-top: 3px;right: 20px;font-size: 15px;" ng-click="vm.referralCode=''"></i>
+            </div>
+            <hr>
+            <div class="item item-icon-left item-icon-right no-border write">
+                <i class="icon ion-android-lock" style="color:#666;font-size: 29px"></i>
+                <input type="password"
+                       placeholder="登录密码"
+                       style="width: 100%"
+                       ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.password">
+                <i class="icon ion-close-circled input-del-register" style="padding-top: 3px;right: 20px;font-size: 15px;" ng-click="vm.password=''"></i>
+            </div>
+        </div>
+        <div class="padding" style="font-size: 10px;color: #fff;position: relative;top:20px">
+            密码要求长度在6-22位字符之间，至少包含数字、字母(区分大小写)、符号(!#$%^&*.~)中的2种
+        </div>
+        <div class="list register-list-inset" style="position: relative;top:3px">
+            <div class="item item-icon-left item-button-right item-icon-right no-border write">
+                <i class="icon iconfont icon-yanzhengma" style="font-size: 29px;color:#666;"></i>
+                <input type="text"
+                       placeholder="验证码"
+                       ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.code">
+                <img ng-src="{{vm.codeUrl}}" ng-click="vm.getCode()" style="position: absolute;top: 8px;right: 16px;z-index: 99;">
+                <button class="button button-dblue button-small" style="position: absolute;top: 8px;right: 16px;background: #fff;width: 0px;height: 0px"></button>
+                <i class="icon ion-close-circled input-del-register" style="position:absolute;padding-top: 3px; right: 95px;font-size: 15px;" ng-click="vm.code=''"></i>
+            </div>
+            <hr>
+            <div class="item item-icon-left item-button-right item-icon-right no-border write">
+                <i class="icon fa fa-mobile" style="color:#666;font-size: 36px"></i>
+                <input type="tel"
+                       placeholder="手机号"
+                       ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.phone">
+                <button class="button button-dgreen button-small" style="position: absolute;top: 6px;right: 16px;font-size: 13px;" ng-click="vm.getCaptcha(true)" ng-disabled="vm.captchaBtn.disabled">{{vm.captchaBtn.label}}</button>
+                <i class="icon ion-close-circled input-del-register" style="position:absolute;padding-top: 3px; right: 95px;font-size: 15px;" ng-click="vm.phone=''"></i>
+            </div>
+            <hr>
+            <div class="item item-icon-left item-icon-right no-border write">
+                <i class="icon ion-ios-email" style="color:#666;"></i>
+                <input type="number"
+                       placeholder="动态码"
+                       style="width: 100%"
+                       ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.captcha">
+                <i class="icon ion-close-circled input-del-register" style="position:absolute;padding-top: 3px;right: 20px;font-size: 15px;" ng-click="vm.captcha=''"></i>
+            </div>
+        </div>
+        <div class="padding" style="padding-bottom:0px; font-size: 12px;color: #fff;">
+            我们将对您的个人信息进行保密，请您放心填写。
+        </div>
+        <div class="padding">
+            <button class="button button-block button-org" ng-click="vm.register()">
+                注册并登录
+            </button>
+        </div>
+    </ion-content>
+</ion-view>-->

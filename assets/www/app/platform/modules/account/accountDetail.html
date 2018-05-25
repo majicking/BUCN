@@ -1,0 +1,62 @@
+<!--2018.5.3 zl-->
+<style>
+    button.button-default{
+        background: #B70825;
+        color: #ffffff;
+    }
+    ul.tempporAccList{
+        padding: 20px 15px;
+    }
+    ul.tempporAccList>li{
+        padding: 15px 20px;
+        height: 90px;
+        background: #ffffff;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        box-shadow: 0px 0px 1px 10px #EBEFF2;
+        margin-top: -5px;
+    }
+    .temp-info{
+        color: #808080;
+    }
+    .temp-list:last-child{
+        /*border-bottom-left-radius: 20px;*/
+        /*border-bottom-right-radius: 20px;*/
+    }
+    .header-item{
+        margin-left: 5px;
+    }
+    .bar .title+.buttons{
+        right: 15px !important;
+    }
+</style>
+
+<ion-view hide-tabs="true" view-title="账户详情">
+    <ion-nav-bar class="bar-org">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear icon iconfont icon-jiantou" ng-click="goNativeBackParams('tab.temporaryAccount',{ type:vm.type })"></button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <!--<button class="button button-clear" style="font-size: 15px" ng-click="vm.showActionSheet()">管理</button>-->
+            <!--<i class="icon ion-plus-round" ng-click="moreToggle()" style="color: #fff;font-size: 30px;"></i>-->
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <span class="more-hide-arrow" ng-show="visible"></span>
+    <ion-content class="bg-color scroll-content ionic-scroll  has-header">
+        <ion-refresher on-refresh="vm.doRefresh()"
+                       pulling-text="下拉刷新"
+                       refreshing-text="刷新中..."
+                       refreshing-icon="ion-loading-b">
+        </ion-refresher>
+        <ul class="list tempporAccList">
+            <li class="item item-sm text-center" ng-show="!vm.hasData&&vm.items.length==0">暂无临时用户</li>
+            <li class="temp-list">
+                <p class="temp-info font-20 mb-10">{{vm.model.accountName}}</p>
+                <p class="f-sb">
+                    <span class="temp-info font-16">当前余额(元):{{vm.model.amount | number:2}}</span>
+                    <span class="temp-info font-16">{{vm.model.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+                </p>
+            </li>
+        </ul>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,148 @@
+<!-- <!-- 2018.04.16 by zl -->
+<div class="back_logo"></div>
+<div class="back_shade"></div>
+<div class="login_content">
+    <!--<ico-view view-title="登录" cache-view="false" class="ionview_login">
+        <div class="bar bar-header bar-positive top-trans">
+            <h1 class="title"></h1>
+        </div>
+    </ico-view>
+        <div class="bar bar-subheader">
+            <div class="button-bar sub_header_list w-font">
+                <a class="m-btn-left button button-clear" ng-class="{'actived':vm.loginType=='left'}" style="min-height: 30px;line-height: 27px;font-size: 16px;" ng-click="vm.loginChanged('left')" s>普通登录</a>
+                <a class="m-btn-right button button-clear" ng-class="{'actived':vm.loginType=='right'}" style="min-height: 30px;line-height: 27px;font-size: 16px" ng-click="vm.loginChanged('right')">管理登录</a>
+            </div>
+        </div>-->
+    <ion-view view-title="登录" cache-view="false" class="ionview_login" style=" background: inherit!important;">
+        <div class="bar bar-header bar-positive top-trans">
+            <div class="iconfont icon-dvt-saoys pos-a QR_code_posi" ng-click="vm.scanner()"></div>
+        </div>
+        <ion-content>
+    <div class="screen_higt" style="overflow: hidden;position: relative">
+        <div class="text-center" style="position:relative;padding: 115px 25px 0;">
+            <div class="" style="width: 100%;margin-bottom: 40px">
+                <img style="float: left;" width="45%" src="app/platform/resources/img/logo.png">
+                <div style="clear: both;"></div>
+            </div>
+            <div class="input_border write">
+                <i class="icon ion-ios-person icon_calss" style="color:#ffffff;font-size: 22px"></i>
+                <input class="NO_bgcolor_input"autocomplete="off" type="text" placeholder="{{vm.placeholder}}" ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.username" autocomplete="off">
+                <i class="icon ion-close-circled input-del-login posi_top" style="padding-top: 3px;right: 20px;font-size: 15px;" ng-click="vm.username=''"></i>
+            </div>
+            <div class="input_border write">
+                <i class="icon ion-android-lock icon_calss" style="color:#ffffff;font-size: 22px"></i>
+                <input class="NO_bgcolor_input"autocomplete="off" type="password" placeholder="登录密码"ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.password">
+                <i class="icon ion-close-circled input-del-login posi_top" style="padding-top: 3px;right: 20px;font-size: 15px;" ng-click="vm.password=''"></i>
+            </div>
+        </div>
+        <div class="forget_login">
+            <div class="floatLeft">
+                <span class="font-16 fl_color_span" ng-click="vm.forgot()" style="margin-right: 20px">找回密码</span>
+                <span class="font-16 fl_color_span" ng-show="vm.loginType=='left'" ui-sref="register">注册新用户</span>
+            </div>
+            <button class="floatRight font-16 login_button" ng-click="vm.login()">登录</button>
+        </div>
+        <!--<div class="col text-right" style="padding: 0 35px 10px 0;">
+            <span class="button button-clear button-dgreen minHeight_span" ng-click="vm.forgot()" style="font-size: 15px">找回密码</span>
+        </div>
+        <div class="padding" style="padding:0 25px 10px">
+            <button class="button button-block button-dgreen opacity_html" ng-click="vm.login()">
+                登陆
+            </button>
+            <button class="button button-block button-org opacity_html" ng-show="vm.loginType=='left'" ui-sref="register">
+                注册新用户
+            </button>
+        </div>-->
+        <div class="posi_bottom">
+            <div class="text-center" style="margin-top: 30px">
+                <hr style="height: 10px;border:none; border-bottom: 1px solid #dedede !important; width:35%; float: left;opacity: 0.5">
+                <b style="color: #fff;font-weight: normal;padding: 0 9px;font-size: 15px">数字商城</b>
+                <hr style="height: 10px;border:none; border-bottom: 1px solid #dedede !important; width:35%; float: right;opacity: 0.5">
+            </div>
+            <p class="text-center" style="padding: 10px 0">
+                <small style="color:#98a6ad">© 2018-2019 <a href="" style="color:#fff">大旗联盟链</a><br><a href="" style="color:#fff">v1.1.0</a>
+                </small>
+            </p>
+        </div>
+        <!--<div class="iconfont icon-dvt-saoys pos-a QR_code_posi" ng-click="vm.scanner()"></div>-->
+    </div>
+</div>
+</ion-content>
+</ion-view>
+<!--<ion-view view-title="登录" cache-view="false" class="ionview_login">
+    <div class="bar bar-header bar-positive top-trans">
+        <h1 class="title">登录</h1>
+    </div>
+    <ion-content>
+        &lt;!&ndash;<div class="bar bar-subheader">
+            <div class="button-bar sub_header_list w-font">
+               <a class="m-btn-left button button-clear" ng-class="{'actived':vm.loginType=='left'}" style="min-height: 30px;line-height: 27px;font-size: 16px;" ng-click="vm.loginChanged('left')" s>普通登录</a>
+               &lt;!&ndash; <a class="m-btn-right button button-clear" ng-class="{'actived':vm.loginType=='right'}" style="min-height: 30px;line-height: 27px;font-size: 16px" ng-click="vm.loginChanged('right')">管理登录</a>
+            </div>
+        </div>&ndash;&gt;
+        <div class="text-center" style="position:relative;padding: 85px 10px 20px 10px;">
+            <img width="45%" src="app/platform/resources/img/logo.png">
+        </div>
+        <div class="list login-list-inset">
+            <div class="item item-icon-left item-icon-right no-border write" style="opacity: 0.5; background: #000000;">
+                <i class="icon ion-ios-person" style="color:#666;"></i>
+                <input type="text"
+                       placeholder="{{vm.placeholder}}"
+                       style="width: 100%"
+                       ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.username">
+                <i class="icon ion-close-circled input-del-login" style="padding-top: 3px;right: 20px;font-size: 15px;" ng-click="vm.username=''"></i>
+            </div>
+            <hr>
+            <div class="item item-icon-left item-icon-right no-border write">
+            //////////////////////////////////////////////
+                <i class="icon ion-android-lock" style="color:#666;font-size: 29px"></i>
+                <input type="password"
+                       placeholder="登陆密码"
+                       style="width: 100%"
+                       ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.password">
+                <i class="icon ion-close-circled input-del-login" style="padding-top: 3px;right: 20px;;font-size: 15px;" ng-click="vm.password=''"></i>
+            </div>
+        </div>
+        <div class="col text-right" style="padding-right: 15px;padding-bottom: 0px">
+            <span class="button button-clear button-dgreen" ng-click="vm.forgot()" style="font-size: 15px">找回密码</span>
+        </div>
+        <div class="padding" style="padding-top: 0px">
+            <button class="button button-block button-dgreen" ng-click="vm.login()">
+                登陆
+            </button>
+            <button class="button button-block button-org" ng-show="vm.loginType=='left'" ui-sref="register">
+                注册新用户
+            </button>
+        </div>
+        <div class="text-center">
+            <hr style="height: 10px;border:none; border-bottom: 1px solid #dedede !important; width:35%; float: left;opacity: 0.5">
+            <b style="color: #fff;font-weight: normal;padding: 0 9px;font-size: 15px">商城运营</b>
+            <hr style="height: 10px;border:none; border-bottom: 1px solid #dedede !important; width:35%; float: right;opacity: 0.5">
+        </div>
+        <p class="text-center" style="padding: 10px 0">
+            <small style="color:#98a6ad">© 2018-2019 <a href="" style="color:#fff">大旗联盟链</a><br><a href="" style="color:#fff">v1.1.0</a>
+            </small>
+        </p>
+    </ion-content>
+</ion-view>-->
+<script>
+    var screenHeight=window.screen.height;
+    $(".screen_higt").css({
+        "height":screenHeight
+    })
+    $(".back_logo").css({
+        "height":screenHeight
+    })
+</script>

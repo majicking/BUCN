@@ -1,0 +1,51 @@
+<ion-view view-title="设置交易密码" cache-view="false" class="ionview_payment">
+    <div class="button button-clear icon iconfont icon-jiantou-copy-copy" style="z-index:99999;top:3px;" ng-click="goNativeBackParams('login', {loginType:'left'})">
+    </div>
+    <div class="bar bar-header bar-positive top-trans">
+        <h1 class="title">设置交易密码</h1>
+    </div>
+    <ion-content>
+        <div class="padding" style="font-size: 11px;color: orangered;position: relative;top:45px">
+            提示：交易密码用于交易等操作的重要密码，请谨慎填写
+        </div>
+        <div class="list payment-list-inset">
+            <div class="item item-input item-icon-right write">
+                <span class="input-label font-15" style="font-weight: normal">新密码</span>
+                <input type="password"
+                       placeholder="新交易密码"
+                       ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.paymentPw">
+                <i class="icon ion-close-circled input-del-pwd" style="padding-top: 3px;font-size: 15px;right: -5px" ng-click="vm.paymentPw=''"></i>
+            </div>
+        </div>
+        <div class="padding" style="font-size: 10px;color: #fff;position: relative;top:30px">
+            密码要求长度在6-22位字符之间，至少包含数字、字母(区分大小写)、符号(!#$%^&*.~)中的2种
+        </div>
+        <div class="list payment-list-inset" style="position: relative;top:15px">
+            <div class="item item-input item-icon-right write">
+                    <span class="input-label font-15" style="font-weight: normal">再确认</span>
+                    <input type="password"
+                           placeholder="确认交易密码"
+                           ng-keyup="writeClear($event, 'write')"
+                           ng-focus="writeClear($event, 'write')"
+                           ng-blur="writeBlur($event, 'write')"
+                           ng-model="vm.rePassword">
+                    <i class="icon ion-close-circled input-del-pwd" style="padding-top: 3px;font-size: 15px;right: -5px" ng-click="vm.rePassword=''"></i>
+                </div>
+            </div>
+        </div>
+        <!--<div style="text-align: center; margin: 10px 10px 0px 10px;font-size: 13px;color: #96ABBB;">-->
+            <!--交易密码用于交易等操作的重要密码，不能直接找回，需联系客服热线 400-0010-780 进行找回，请不要忘记，以免给您的操作带来不便。-->
+        <!--</div>-->
+        <div class="padding" style="padding-bottom:0px; font-size: 12px;color: #fff;position: relative;top:12px">
+            交易密码不能直接找回，需联系客服QQ：<em style="color: orangered">2339248985</em> 进行找回，请不要忘记，以免给您的操作带来不便。
+        </div>
+        <div class="padding padding-horizontal" style="position: relative;top:15px">
+            <button class="button button-block button-dgreen" ng-click="vm.confirm()">
+                确认
+            </button>
+        </div>
+    </ion-content>
+</ion-view>
