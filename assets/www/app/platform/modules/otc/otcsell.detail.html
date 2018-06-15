@@ -47,6 +47,20 @@
             <h2 style="font-size: 17px;color: #444">{{vm.bankInfo.bankName}}</h2>
             <p style="font-size: 13px;">{{vm.bankInfo.nature}} | {{vm.bankInfo.bankCard}}</p>
         </div>
+        <div class="item item-icon-left" style="border-bottom: none" ng-show="((vm.input.otcType=='1'&&vm.input.currentUser!=vm.input.createUser)||(vm.input.otcType=='0'&&vm.input.currentUser==vm.input.createUser))&&vm.bankInfo.weichatPay!=null">
+            <i class="icon iconfont icon-aui-icon-weichat" style="color:#3cb035;font-size: 29px;"></i>
+            <label class="font-15" style="position: relative;top: -1px;">微信账号</label>
+            <div class="item-note">
+                {{vm.bankInfo.weichatPay}}
+            </div>
+        </div>
+        <div class="item item-icon-left" style="border-bottom: none" ng-show="((vm.input.otcType=='1'&&vm.input.currentUser!=vm.input.createUser)||(vm.input.otcType=='0'&&vm.input.currentUser==vm.input.createUser))&&vm.bankInfo.aliPay!=null">
+            <i class="icon iconfont icon-zhifubao" style="color:#008fe0;font-size: 28px;"></i>
+            <label class="font-15" style="position: relative;top: -1px;">支付宝账号</label>
+            <div class="item-note">
+                {{vm.bankInfo.aliPay}}
+            </div>
+        </div>
         <div class="item-gap" ng-show="vm.input.otcType=='1'&&vm.input.currentUser!=vm.input.createUser"></div>
         <div class="item withdraw item-icon-left" style="border: none" ng-click="vm.subAccountChanged(subAccountTypeText.value)" ng-repeat="subAccountTypeText in vm.model.subAccountTypeTextList" ng-show="vm.input.otcType=='1'&&vm.input.currentUser!=vm.input.createUser"" >
             <i class="icon iconfont {{subAccountTypeText.text.split(':')[1]}} {{subAccountTypeText.text.split(':')[2]}}" style="font-size: 25px;"></i>

@@ -66,7 +66,7 @@
                         }
                     })
                     .state('tab.account-building', {
-                        url: '/account/building',
+                        url: '/account/building?code',
                         views: {
                             'tab-account': {
                                 templateUrl: 'app/platform/modules/account/building.html?ver=' + ver
@@ -94,7 +94,7 @@
                     })
                     .state('tab.account-qrcodel', {
                         cache: 'false',
-                        url: '/account/qrcodel',
+                        url: '/account/qrcodel?code',
                         views: {
                             'tab-account': {
                                 templateUrl: 'app/platform/modules/account/qrcodel.html?ver=' + ver,
@@ -288,7 +288,7 @@
                     })
                     .state('tab.product-roll-in', {
                         cache:'false',
-                        url: '/product/roll-in?subAccountType&tradeType',
+                        url: '/product/roll-in?code&subAccountType&tradeType',
                         nativeTransitions: null,
                         views: {
                             'tab-product': {
@@ -312,7 +312,7 @@
                     })
                     .state('tab.product-roll-in-account', {
                         cache:'false',
-                        url: '/product/roll-in-account?subAccountType&tradeType',
+                        url: '/product/roll-in-account?code&subAccountType&tradeType',
                         nativeTransitions: null,
                         views: {
                             'tab-account': {
@@ -554,7 +554,7 @@
                     })
                     .state('tab.manage-user-graph', {
                         cache:'false',
-                        url: '/manage/user-graph',
+                        url: '/manage/user-graph?code',
                         views: {
                             'tab-manage': {
                                 templateUrl: 'app/platform/modules/account/user.graph.html?ver=' + ver,
@@ -660,7 +660,7 @@
                     })
                     .state('welcome', {
                         cache: 'false',
-                        url: '/welcome',
+                        url: '/welcome?code',
                         templateUrl: 'app/platform/modules/account/welcome.html?ver=' + ver,
                         controller: 'WelcomeCtrl',
                         controllerAs: 'vm',
@@ -780,7 +780,7 @@
                     })
                     .state('tab.account-payment-account-0001', {
                         cache: 'false',
-                        url: '/account/payment-account1?subAccountType',
+                        url: '/account/payment-account1?code&subAccountType',
                         views: {
                             'tab-account': {
                                 templateUrl: 'app/platform/modules/account/payment.account1.html?ver=' + ver,
@@ -799,7 +799,7 @@
                     })
                     .state('tab.account-payment-account-0002', {
                         cache: 'false',
-                        url: '/account/payment-account2?subAccountType',
+                        url: '/account/payment-account2?code&subAccountType',
                         views: {
                             'tab-account': {
                                 templateUrl: 'app/platform/modules/account/payment.account2.html?ver=' + ver,
@@ -818,7 +818,7 @@
                     })
                     .state('tab.account-payment-account-0003', {
                         cache: 'false',
-                        url: '/account/payment-account3?subAccountType',
+                        url: '/account/payment-account3?code&subAccountType',
                         views: {
                             'tab-account': {
                                 templateUrl: 'app/platform/modules/account/payment.account3.html?ver=' + ver,
@@ -837,7 +837,7 @@
                     })
                     .state('tab.account-payment-account-0004', {
                         cache: 'false',
-                        url: '/account/payment-account4?subAccountType',
+                        url: '/account/payment-account4?code&subAccountType',
                         views: {
                             'tab-account': {
                                 templateUrl: 'app/platform/modules/account/payment.account4.html?ver=' + ver,
@@ -1037,7 +1037,7 @@
                     })
                     .state('tab.market-list', { //市场列表
                         cache: 'false',
-                        url: '/otc/otcsell.list',
+                        url: '/otc/otcsell.list?code',
                         views: {
                             'tab-market': {
                                 templateUrl: 'app/platform/modules/otc/otcsell.list.html?ver=' + ver,
@@ -1056,7 +1056,7 @@
                     })
                     .state('tab.market-detail', { //市场详情
                         cache: 'false',
-                        url: '/otc/otcsell.detail?otcCurrentId&subAccountType',
+                        url: '/otc/otcsell.detail?code&otcCurrentId&subAccountType',
                         views: {
                             'tab-market': {
                                 templateUrl: 'app/platform/modules/otc/otcsell.detail.html?ver=' + ver,
@@ -1126,7 +1126,7 @@
                     })
                     .state('tab.otcsell-detail', { //挂单详情
                         cache: 'false',
-                        url: '/otc/mysells.detail?otcCurrentId&preRouterUrl&otcCurrentState&subAccountType',
+                        url: '/otc/mysells.detail?code&otcCurrentId&preRouterUrl&otcCurrentState&subAccountType',
                         views: {
                             'tab-account': {
                                 templateUrl: 'app/platform/modules/otc/mysells.detail.html?ver=' + ver,
@@ -1150,7 +1150,7 @@
                     })
                     .state('tab.otcbuy-mybuys', { //购买清单
                         cache: 'false',
-                        url: '/otc/mybuys.list?subAccountType',
+                        url: '/otc/mybuys.list?code&subAccountType',
                         views: {
                             'tab-account': {
                                 templateUrl: 'app/platform/modules/otc/mybuys.list.html?ver=' + ver,
@@ -1173,7 +1173,7 @@
                     })
                     .state('tab.otcbuy-detail', { //购买详情
                         cache: 'false',
-                        url: '/otc/mybuys.detail?otcCurrentId&currentBuyId&preRouterUrl&otcCurrentState&subAccountType',
+                        url: '/otc/mybuys.detail?code&otcCurrentId&currentBuyId&preRouterUrl&otcCurrentState&subAccountType',
                         views: {
                             'tab-account': {
                                 templateUrl: 'app/platform/modules/otc/mybuys.detail.html?ver=' + ver,
@@ -1197,7 +1197,7 @@
                     })
                     .state('tab.manage-pattern', {
                         cache: 'false',
-                        url: '/pattern/pattern.setting?',
+                        url: '/pattern/pattern.setting?code',
                         views: {
                             'tab-manage': {
                                 templateUrl: 'app/platform/modules/pattern/pattern.setting.html?ver=' + ver,
@@ -1218,7 +1218,7 @@
                     })
                     .state('pwdGesture', {
                         cache: 'false',
-                        url: '/passwordGesture',
+                        url: '/passwordGesture?code',
                         templateUrl: 'app/platform/modules/pattern/passwordGesture.html?ver=' + ver,
                         controller: 'PatternPassWordGestureCtrl',
                         controllerAs: 'vm',
@@ -1233,7 +1233,7 @@
                     })
                     .state('rollWellcome', {
                         cache:'false',
-                        url: 'app/platform/modules/pattern/rollWellcome?subAccountType&tradeType',
+                        url: 'app/platform/modules/pattern/rollWellcome?code&subAccountType&tradeType',
                         templateUrl: 'app/platform/modules/pattern/rollWellcome.html?ver=' + ver,
                         controller: 'ProductRollWellComeInCtrl',
                         controllerAs: 'vm',
@@ -1248,6 +1248,76 @@
                                     ]
                                 );
                             }]
+                        }
+                    })
+                    .state('tab.manage-weichatPay', {
+                        cache: 'false',
+                        url: '/manage/weichatPay?code',
+                        views: {
+                            'tab-manage': {
+                                templateUrl: 'app/platform/modules/account/weichatPay.html?ver=' + ver,
+                                controller: 'WeichatPayCtrl',
+                                controllerAs: 'vm',
+                                resolve: {
+                                    loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
+                                        return $ocLazyLoad.load('app/platform/modules/account/weichatPay.ctrl.js?ver=' + ver);
+                                    }],
+                                    loadService: ['$ocLazyLoad', function ($ocLazyLoad) {
+                                        return $ocLazyLoad.load(
+                                            [
+                                                'app/platform/services/account.service.js?ver=' + ver,
+                                                'app/platform/services/user.service.js?ver=' + ver
+                                            ]
+                                        );
+                                    }]
+                                }
+                            }
+                        }
+                    })
+                    .state('tab.manage-aliPay', {
+                        cache: 'false',
+                        url: '/manage/aliPay?code',
+                        views: {
+                            'tab-manage': {
+                                templateUrl: 'app/platform/modules/account/aliPay.html?ver=' + ver,
+                                controller: 'AliPayCtrl',
+                                controllerAs: 'vm',
+                                resolve: {
+                                    loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
+                                        return $ocLazyLoad.load('app/platform/modules/account/aliPay.ctrl.js?ver=' + ver);
+                                    }],
+                                    loadService: ['$ocLazyLoad', function ($ocLazyLoad) {
+                                        return $ocLazyLoad.load(
+                                            [
+                                                'app/platform/services/account.service.js?ver=' + ver,
+                                                'app/platform/services/user.service.js?ver=' + ver
+                                            ]
+                                        );
+                                    }]
+                                }
+                            }
+                        }
+                    })
+                    .state('tab.account-trend', { //市场走势
+                        cache: 'false',
+                        url: '/account/trend?code&subAccountType',
+                        views: {
+                            'tab-account': {
+                                templateUrl: 'app/platform/modules/account/market.trend.html?ver=' + ver,
+                                controller: 'MarketTrendCtrl',
+                                controllerAs: 'vm',
+                                resolve: {
+                                    loadController: ['$ocLazyLoad', function ($ocLazyLoad) {
+                                        return $ocLazyLoad.load('app/platform/modules/account/market.trend.ctrl.js?ver=' + ver);
+                                    }],
+                                    loadService: ['$ocLazyLoad', function ($ocLazyLoad) {
+                                        return $ocLazyLoad.load([
+                                            'app/platform/services/otc.service.js?ver=' + ver,
+                                            'app/platform/services/market.service.js?ver=' + ver
+                                        ]);
+                                    }]
+                                }
+                            }
                         }
                     })
                     //.state('tab.service', {

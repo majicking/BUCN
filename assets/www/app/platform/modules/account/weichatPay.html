@@ -1,0 +1,29 @@
+<ion-view view-title="添加微信账号" hide-tabs="true" cache-view="false">
+    <ion-nav-bar class="bar-dblue">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon-sm button-clear icon iconfont icon-jiantou" ng-click="goNativeBack('tab.manage')"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="bg-color">
+        <div class="padding" style="font-size: 11px;color: orangered;">
+            提示：微信账号只能绑定一次为了，请谨慎填写
+        </div>
+        <div class="list list-inset">
+            <div class="item item-input item-icon-right no-border write">
+                <span class="input-label font-15" style="font-weight: normal">微信</span>
+                <input type="text"
+                       placeholder="请输入微信账号"
+                       ng-keyup="writeClear($event, 'write')"
+                       ng-focus="writeClear($event, 'write')"
+                       ng-blur="writeBlur($event, 'write')"
+                       ng-model="vm.model.weichatPay">
+                <i class="icon ion-close-circled input-pay-weichat" style="padding-top: 3px;font-size: 15px;right: 8px" ng-click="vm.model.weichatPay=''"></i>
+            </div>
+        </div>
+        <div class="padding-top padding-horizontal">
+            <button class="button button-block button-dblue" ng-click="vm.addWeichatPay()">
+                确认
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

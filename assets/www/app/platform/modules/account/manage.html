@@ -120,6 +120,36 @@
             </div>
             <i class="icon ion-chevron-right icon-accessory"></i>
         </a>
+        <div class="item item-icon-left" ng-if="vm.model.weichatPay!=null">
+            <i class="icon iconfont icon-aui-icon-weichat" style="color:#3cb035;font-size: 29px;" ng-if="vm.model.weichatPay!=null"></i>
+            <label class="font-15" style="position: relative;top: -1px;">微信账号</label>
+            <div class="item-note">
+                {{vm.model.weichatPay}}
+            </div>
+        </div>
+        <div class="item item-icon-left item-icon-right" ng-if="vm.model.weichatPay==null" ng-click="goNativeBack('tab.manage-weichatPay')">
+            <i class="icon iconfont icon-aui-icon-weichat" style="color:grey;font-size: 29px;" ng-if="vm.model.weichatPay==null"></i>
+            <label class="font-15" style="position: relative;top: -1px;">微信账号</label>
+            <div ng-if="vm.model.weixinOpenId==null" class="item-note-red">
+                未绑定
+            </div>
+            <i class="icon ion-chevron-right icon-accessory"></i>
+        </div>
+        <div class="item item-icon-left" ng-if="vm.model.aliPay!=null">
+            <i class="icon iconfont icon-zhifubao" style="color:#008fe0;font-size: 28px;" ng-if="vm.model.aliPay!=null"></i>
+            <label class="font-15" style="position: relative;top: -1px;">支付宝账号</label>
+            <div class="item-note">
+                {{vm.model.aliPay}}
+            </div>
+        </div>
+        <div class="item item-icon-left item-icon-right" ng-if="vm.model.aliPay==null" ng-click="goNativeBack('tab.manage-aliPay')">
+            <i class="icon iconfont icon-zhifubao" style="color:grey;font-size: 28px;" ng-if="vm.model.aliPay==null"></i>
+            <label class="font-15" style="position: relative;top: -1px;">支付宝账号</label>
+            <div ng-if="vm.model.aliPay==null" class="item-note-red">
+                未绑定
+            </div>
+            <i class="icon ion-chevron-right icon-accessory"></i>
+        </div>
         <div class="item item-gap" style="border:none"></div>
         <!--<div class="item item-icon-left" ng-if="vm.model.userType=='0' && vm.model.referralName!=null">
            <i class="icon ion-ios-people" style="color: #29ab9a; font-size: 23px;"></i>

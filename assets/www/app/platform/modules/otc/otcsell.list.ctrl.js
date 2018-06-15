@@ -10,6 +10,7 @@
     OtcSellListCtrl.$inject = ['$stateParams', '$rootScope', '$scope', '$state', '$ionicPopover', 'OtcService','$ionicLoading'];
     function OtcSellListCtrl($stateParams, $rootScope, $scope, $state, $ionicPopover,OtcService,$ionicLoading) {
         var vm = this;
+        vm.model = {};
         vm.items = [];
         vm.hasMoreData = false;
         vm.hasData = true;
@@ -21,8 +22,15 @@
         vm.criteria = {
             status:0,
             otcType:0,
-            subAccountType:'0010'
+            subAccountType:'0022'
         };
+
+        angular.forEach($rootScope.userInfo.subAccountTypeList, function (item) {
+            if (item.value == vm.criteria.subAccountType) {
+                vm.model.subAccountTypeText = item.text;
+                return;
+            }
+        });
 
         vm.otcTypes = [
             {
@@ -59,20 +67,28 @@
         function doRefresh() {
             OtcService.getOtcSellList(1, vm.page.itemsPerPage, vm.criteria)
                 .success(function (data) {
+                    vm.model = data;
+                    angular.forEach($rootScope.userInfo.subAccountTypeList, function (item) {
+                        if (item.value == vm.subAccountType) {
+                            item.text = vm.model.subAccountTypeText;
+                            return;
+                        }
+                    });
+
                     vm.page = {
                         currentPage: 1,
                         itemsPerPage: 10
                     }
                     vm.items = [];
-                    if (data.otcSellModelList.length == 0) {
+                    if (vm.model.otcSellModelList.length == 0) {
                         vm.hasMoreData = false;
                         vm.hasData = false;
                     } else {
-                        angular.forEach(data.otcSellModelList, function (item) {
+                        angular.forEach(vm.model.otcSellModelList, function (item) {
                             vm.items.push(item);
                         });
                         vm.page.currentPage++;
-                        if (data.otcSellModelList.length < vm.page.itemsPerPage) {
+                        if (vm.model.otcSellModelList.length < vm.page.itemsPerPage) {
                             vm.hasMoreData = false;
                             vm.hasData = false;
                         } else {
@@ -92,15 +108,23 @@
         function loadMore() {
             OtcService.getOtcSellList(vm.page.currentPage,vm.page.itemsPerPage,vm.criteria)
                 .success(function (data) {
-                    if (data.otcSellModelList.length == 0) {
+                    vm.model = data;
+                    angular.forEach($rootScope.userInfo.subAccountTypeList, function (item) {
+                        if (item.value == vm.subAccountType) {
+                            item.text = vm.model.subAccountTypeText;
+                            return;
+                        }
+                    });
+
+                    if (vm.model.otcSellModelList.length == 0) {
                         vm.hasMoreData = false;
                         vm.hasData = false;
                     } else {
-                        angular.forEach(data.otcSellModelList, function (item) {
+                        angular.forEach(vm.model.otcSellModelList, function (item) {
                             vm.items.push(item);
                         });
                         vm.page.currentPage++;
-                        if (data.otcSellModelList.length < vm.page.itemsPerPage) {
+                        if (vm.model.otcSellModelList.length < vm.page.itemsPerPage) {
                             vm.hasMoreData = false;
                             vm.hasData = false;
                         } else {

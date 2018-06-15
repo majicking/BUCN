@@ -68,7 +68,7 @@
         }
 
         initOtcSellAddPage();
-        initBankCards();
+        initBankCard();
         initConsumeAccount();
 
         function otcTypeChanged(otcTypeVal){
@@ -105,15 +105,11 @@
             });
         }
 
-        function initBankCards(){
-            BankCardService.getBankCardList(vm.userId)
+        function initBankCard(){
+            BankCardService.getBankCardByReal(vm.userId, '', 0)
                 .success(function(data){
-                    angular.forEach(data, function (item) {
-                        if(item.used == '1'){
-                            vm.bankInfo = item;
-                            vm.input.bankCardId = vm.bankInfo.id;
-                        }
-                    });
+                    vm.bankInfo = data;
+                    vm.input.bankCardId = vm.bankInfo.id;
                 }).error(function (error) {
             }).finally(function () {
             });

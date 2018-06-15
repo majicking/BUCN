@@ -80,7 +80,7 @@
                         && vm.input.currentUser!=vm.input.createUser)
                         || (vm.input.otcType=='0'
                         && vm.input.currentUser==vm.input.createUser)) {
-                        initBankCards();
+                        initBankCard();
                     }
                     initConsumeAccount();
                 }).error(function (error) {
@@ -98,15 +98,11 @@
                 vm.pageContent.btnStr = '卖出';
             }
         }
-        function initBankCards(){
-            BankCardService.getBankCardList(vm.input.currentUser)
+        function initBankCard(){
+            BankCardService.getBankCardByReal(vm.input.currentUser, '', 0)
                 .success(function(data){
-                    angular.forEach(data, function (item) {
-                        if(item.used == '1'){
-                            vm.bankInfo = item;
-                            vm.input.bankCardId = vm.bankInfo.id;
-                        }
-                    });
+                    vm.bankInfo = data;
+                    vm.input.bankCardId = vm.bankInfo.id;
                 }).error(function (error) {
             }).finally(function () {
             });

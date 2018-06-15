@@ -1,10 +1,6 @@
 <ion-header-bar hide-tabs="true" id="s-header" class="{{vm.model.subAccountTypeText.split(':')[4].split(',')[0]}}" cache-view="false">
-    <!--<div class="button button-clear icon iconfont icon-jiantou" style="left: 2px;" ng-click="goNativeBack('tab.account')">-->
-    <!--</div>-->
-
-    <div class="button button-clear icon iconfont icon-jiantou" style="left: 2px;" ng-click="goNativeBackParams('tab.account-payment-account-0001', {subAccountType:'0010'})"></div>
-
-
+    <div class="button button-clear icon iconfont icon-jiantou" style="left: 2px;" ng-click="goNativeBackParams('tab.account-payment-account-0001', {subAccountType:'0010'})">
+    </div>
     <h1 class="title1" style="color: #fff;font-weight: normal">{{vm.model.subAccountTypeText.split(':')[0]}}</h1>
     <div class="button button-clear" style="position: absolute;right:10px;top:6px" ng-click="moreToggle()">
         <i class="iconfont {{vm.model.subAccountTypeText.split(':')[1]}}" style="color: #fff;font-size: 30px;"></i>

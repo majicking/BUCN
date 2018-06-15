@@ -449,6 +449,48 @@
                     return promise;
                 };
                 return promise;
+            },
+            addWeichatPay: function (userId, weichatPay) {
+                var deferred = $q.defer();
+                var promise = deferred.promise;
+                $http.post('http://bucn.ghbacoin.com/api/user/weichatPay', {
+                    userId: userId,
+                    weichatPay: weichatPay,
+                }).success(function (message) {
+                    deferred.resolve(message.data);
+                }).error(function (error) {
+                    deferred.reject(error);
+                });
+                promise.success = function (fn) {
+                    promise.then(fn);
+                    return promise;
+                };
+                promise.error = function (fn) {
+                    promise.then(null, fn);
+                    return promise;
+                };
+                return promise;
+            },
+            addAliPay: function (userId, aliPay) {
+                var deferred = $q.defer();
+                var promise = deferred.promise;
+                $http.post('http://bucn.ghbacoin.com/api/user/aliPay', {
+                    userId: userId,
+                    aliPay: aliPay,
+                }).success(function (message) {
+                    deferred.resolve(message.data);
+                }).error(function (error) {
+                    deferred.reject(error);
+                });
+                promise.success = function (fn) {
+                    promise.then(fn);
+                    return promise;
+                };
+                promise.error = function (fn) {
+                    promise.then(null, fn);
+                    return promise;
+                };
+                return promise;
             }
         }
     }

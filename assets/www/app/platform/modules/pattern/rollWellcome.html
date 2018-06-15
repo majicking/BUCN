@@ -108,15 +108,7 @@
 </style>
 <ion-header-bar id="s-header" class="bar-dblue" cache-view="false">
     <div class="button button-clear icon iconfont icon-jiantou" style="left: 2px;" ng-click="vm.goTowelcome('welcome')"></div>
-    <h1 class="title1" style="color: #fff;font-weight: normal">
-        {{vm.model.subAccountTypeStyle.split(':')[0]}}
-        {{vm.diurnalPower == '01'?'临时节点'
-        :vm.diurnalPower == '02'?'固定节点（1个月）'
-        :vm.diurnalPower == '03'?'固定节点（3个月）'
-        :vm.diurnalPower == '04'?'固定节点（6个月）'
-        :vm.diurnalPower == '05'?'固定节点（12个月）'
-        :''}}
-    </h1>
+    <h1 class="title1" style="color: #fff;font-weight: normal">存入</h1>
 </ion-header-bar>
 <ion-content class="bg-color">
     <div class="list">

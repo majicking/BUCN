@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.majick.ghlc.MainActivity;
 import com.majick.ghlc.R;
 import com.majick.ghlc.SharePreferenceUtils;
@@ -119,9 +120,13 @@ public class FirstStartActivity extends Activity {
         ImageView imageView1 = new ImageView(this);
         ImageView imageView2 = new ImageView(this);
         ImageView imageView3 = new ImageView(this);
-        imageView1.setBackgroundResource(getResources().getIdentifier("welcom1", "drawable", getPackageName()));
-        imageView2.setBackgroundResource(getResources().getIdentifier("welcom2", "drawable", getPackageName()));
-        imageView3.setBackgroundResource(getResources().getIdentifier("welcom3", "drawable", getPackageName()));
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        imageView1.setScaleType(ImageView.ScaleType.FIT_XY);
+        imageView2.setScaleType(ImageView.ScaleType.FIT_XY);
+        imageView3.setScaleType(ImageView.ScaleType.FIT_XY);
+        Glide.with(this).load(getResources().getIdentifier("welcom1", "drawable", getPackageName())).into(imageView1);
+        Glide.with(this).load(getResources().getIdentifier("welcom2", "drawable", getPackageName())).into(imageView2);
+        Glide.with(this).load(getResources().getIdentifier("welcom3", "drawable", getPackageName())).into(imageView3);
         list_path.add(imageView1);
         list_path.add(imageView2);
         list_path.add(imageView3);

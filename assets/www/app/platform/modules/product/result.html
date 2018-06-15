@@ -37,11 +37,11 @@
                     </div>
                     <div class="cd-timeline-content">
                         <div class="cd-title cd-info-blue">{{vm.pattern == '0'?'转出':'存入'}}
-                            {{vm.model.tradeType == '01'?'临时节点'
-                            :vm.model.tradeType == '02'?'固定节点（1个月）'
-                            :vm.model.tradeType == '03'?'固定节点（3个月）'
-                            :vm.model.tradeType == '04'?'固定节点（6个月）'
-                            :vm.model.tradeType == '05'?'固定节点（12个月）'
+                            {{vm.model.tradeType == '01'?'临时节点(永久)'
+                            :vm.model.tradeType == '02'?'固定节点(1个月)'
+                            :vm.model.tradeType == '03'?'固定节点(3个月)'
+                            :vm.model.tradeType == '04'?'固定节点(6个月)'
+                            :vm.model.tradeType == '05'?'固定节点(12个月)'
                             :''}}</div>
                         <span class="cd-date" style="display: block;float: none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{vm.pattern == '0'?'转出':'存入'}}数量:{{vm.model.amount}}</span>
                         <span class="cd-date">{{vm.model.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</span>

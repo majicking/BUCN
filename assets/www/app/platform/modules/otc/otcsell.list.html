@@ -77,20 +77,20 @@
     }
 </style>
 <!-- 2018.04.12 by zl -->
-<ion-header-bar hide-tabs="false" id="s-header" cache-view="false" class="bar-dblue">
-    <h1 class="title1" style="color: #fff;font-weight: normal">市场</h1>
+<ion-header-bar hide-tabs="false" id="s-header" cache-view="false" class="{{vm.model.subAccountTypeText.split(':')[4].split(',')[0]}}">
+    <h1 class="title1" style="color: #fff;font-weight: normal">{{vm.model.subAccountTypeText.split(':')[0]}}</h1>
 </ion-header-bar>
 <div class="tabs-striped tabs-top tabs-color-{{vm.model.subAccountTypeText.split(':')[2]}}" style="height: 49px;margin-top:44px;text-align: center;position: relative;z-index: 999">
     <div class="tabs f" style="top: 40px;position: static;">
         <!--<a class="tab-item text-grey fr" ng-class="{'text-{{vm.model.subAccountTypeText.split(':')[2]}} active':vm.criteria.otcType == otcType.value}" ng-click="vm.otcTypeChanged(otcType.value)" ng-repeat="otcType in vm.otcTypes" >{{otcType.text}}</a>-->
         <div style="margin:0 auto; position: relative">
-            <a class="after_action" style="position: relative" ng-click="vm.otcTypeChanged(0)">卖出</a>
-            <a class="after_action actived-s" style="position: relative" ng-click="vm.otcTypeChanged(1)">买入</a>
-            <div class="otcTab-bline"></div>
+            <a class="after_action {{vm.model.subAccountTypeText.split(':')[2].split(',')[0]}}" style="position: relative" ng-click="vm.otcTypeChanged(0)">卖出</a>
+            <a class="after_action {{vm.model.subAccountTypeText.split(':')[2].split(',')[0]}} actived-s" style="position: relative" ng-click="vm.otcTypeChanged(1)">买入</a>
+            <div class="otcTab-bline {{vm.model.subAccountTypeText.split(':')[2].split(',')[0]}} background-line"></div>
         </div>
     </div>
 </div>
-<ion-content class="bg-color" style="margin-top: 49px">
+<ion-content class="{{vm.model.subAccountTypeText.split(':')[4].split(',')[1]}}" style="margin-top: 49px">
     <ion-refresher on-refresh="vm.doRefresh()"
                    pulling-text="下拉刷新"
                    refreshing-text="刷新中..."

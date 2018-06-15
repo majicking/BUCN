@@ -473,7 +473,6 @@ a{
 	background: rgba(120, 120, 120, 0.6);
 	width: 90px;
 	border: none;
-    z-index: 1000;
 	/*height: 110px;*/
 }
 .more-hide-arrow {
@@ -491,7 +490,6 @@ a{
 	border-width: 0.4rem;
 	border-color: transparent transparent rgba(120, 120, 120, 0.6) transparent;
 	border-style: dashed dashed solid dashed;
-    z-index: 1000;
 }
 
 .more-hide li{

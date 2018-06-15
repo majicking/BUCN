@@ -38,7 +38,8 @@
             </div>
             <div class="list" style="background-color:#fff;">
                 <ul class="product_ulList">
-                    <li ng-repeat="product in vm.model.temporary.list" ng-click="goNativeBackParams('rollWellcome', {subAccountType:'1002',tradeType:product.value})">
+                    <li ng-repeat="product in vm.model.temporary.list">
+                        <!--ng-click="goNativeBackParams('rollWellcome', {subAccountType:'1002',tradeType:product.value})"-->
                         <div class="productList_left">
                             <p class="styleFirst" style="color: #F75155">
                                 <span class="font-16 interest_span pos-r" style="bottom: 2px;color: #9F9F9F">约</span>
@@ -68,8 +69,8 @@
             </div>
             <div class="list" style="background-color:#fff;">
                 <ul class="product_ulList">
-                    <li ng-repeat="product in vm.model.fixed.list"
-                        ng-click="goNativeBackParams('rollWellcome', {subAccountType:'1002',tradeType:product.value})">
+                    <li ng-repeat="product in vm.model.fixed.list">
+                    <!--ng-click="goNativeBackParams('rollWellcome', {subAccountType:'1002',tradeType:product.value})"-->
                         <div class="productList_left">
                             <p class="styleFirst" style="color: #F75155">
                                 <span class="font-16 pos-r" style="bottom: 2px;color: #9F9F9F">约</span>

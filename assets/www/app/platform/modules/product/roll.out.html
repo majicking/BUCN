@@ -3,7 +3,7 @@
     </div>
     <h1 class="title1" style="color: #fff;font-weight: normal">{{vm.model.subAccountTypeStyle.split(':')[0]}}</h1>
     <div class="button button-clear" style="position: absolute;right:10px;top:6px" ng-click="moreToggle()">
-        <i class="icon iconfont icon-jiedianjinduliebiaotuan" style="color: #fff;font-size: 30px;"></i>
+        <i class="icon iconfont {{vm.model.subAccountTypeStyle.split(':')[1]}}" style="color: #fff;font-size: 30px;"></i>
     </div>
     <span class="more-hide-arrow" ng-show="visible"></span>
     <div class="more-hide" ng-show="visible">

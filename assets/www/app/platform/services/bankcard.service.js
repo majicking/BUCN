@@ -32,12 +32,14 @@
                 };
                 return promise;
             },
-            getBankCardListByReal: function (userId) {
+            getBankCardByReal: function (userId, id, flag) {
                 var deferred = $q.defer();
                 var promise = deferred.promise;
                 $http.get('http://bucn.ghbacoin.com/api/bankcardByReal', {
                     params: {
-                        userId: userId
+                        userId: userId,
+                        id: id,
+                        flag: flag
                     }
                 }).success(function (message) {
                     deferred.resolve(message.data);

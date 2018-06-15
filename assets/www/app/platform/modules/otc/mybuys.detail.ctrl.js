@@ -105,7 +105,7 @@
                     vm.pageElementCon.isBankMoneyOrder = false;
                     vm.pageElementCon.isCanUpdate = false;
                     vm.pageElementCon.isOptions = true;
-                    vm.pageElementCon.isCreaterUser = true;
+                    vm.pageElementCon.isCreaterUser = false;
                     vm.pageElementCon.optionBtns.cancelSell = true;
                 }else if(status == '1'){ //交易中, 发起人进入
                     vm.pageElementCon.isBankShow = true;
@@ -156,7 +156,7 @@
 
                     initPageElements();
                     if(vm.pageElementCon.isBankShow){
-                        initBankCards();
+                        initBankCard();
                     }
                     //initConsumeAccount();
                 }).error(function (error) {
@@ -165,18 +165,12 @@
             });
         }
 
-        function initBankCards(){
-            BankCardService.getBankCardListByReal(vm.pageElementCon.bankUser)
+        function initBankCard(){
+            BankCardService.getBankCardByReal(vm.pageElementCon.bankUser, vm.input.bankCardId, 1)
                 .success(function(data){
-                    angular.forEach(data, function (item) {
-                        if(item.used == '1'){
-                            vm.bankInfo = item;
-                            vm.input.bankCardId = vm.bankInfo.id;
-                        }
-                    });
-                    
+                    vm.bankInfo = data;
+                    vm.input.bankCardId = vm.bankInfo.id;
                 }).error(function (error) {
-
             }).finally(function () {
             });
         }

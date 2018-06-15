@@ -1,0 +1,36 @@
+<ion-header-bar hide-tabs="true" id="s-header" class="{{vm.model.subAccountTypeText.split(':')[4].split(',')[0]}}" cache-view="false">
+    <div class="button button-clear icon iconfont icon-jiantou" style="left: 2px;" ng-click="goNativeBack('tab.account')">
+    </div>
+    <h1 class="title1" style="color: #fff;font-weight: normal">{{vm.model.subAccountTypeText.split(':')[0]}}</h1>
+</ion-header-bar>
+<ion-content class="{{vm.model.subAccountTypeText.split(':')[4].split(',')[1]}}">
+    <div class="list">
+        <div class="trend-height">
+            <div class="item item-icon-left item-icon-right" style="border: none">
+                <i class="icon iconfont icon-ruhetigaodengjifen" style="font-size: 25px;color: #1b82d2;"></i>
+                <label class="font-17">BUCN</label>
+                <i class="icon ion-chevron-right icon-accessory" style="width: 50px;padding-left: 18px;color: #fff">
+                    <div class="tags-price" style="">
+                        <span class="jia_ge_die" ng-if="vm.model.upDown=='0'">{{vm.model.rate}}%</span>
+                        <span class="jia_ge_zhang" ng-if="vm.model.upDown=='1'">{{vm.model.rate}}%</span>
+                        <span class="jia_ge_gain" ng-if="vm.model.upDown=='2'">{{vm.model.rate}}%</span>
+                    </div>
+                    <div class="item-note-price font-17">{{vm.model.market|number:2}}</div>
+                </i>
+            </div>
+            <div class="item-gap"></div>
+            <div class="item f-sb market-ga" style="border: none">
+                <!--<div class="tab_div" ><span>零点开盘</span><br><span class="price_color">{{vm.model.zeroPrice}}</span></div>-->
+                <div class="f-ac f-dc"><span>最高</span><span class="price_color">{{vm.model.highestPrice}}</span></div>
+                <div class="f-ac f-dc"><span>最低</span><span class="price_color">{{vm.model.lowestPrice}}</span></div>
+                <div class="f-ac f-dc"><span>成交量</span><span class="price_color">{{vm.model.turnoverTotal}}</span></div>
+            </div>
+            <div class="item-gap"></div>
+            <div class="item f-sb market" style="border: none" id="div_period">
+                <div class="market-title f-ac f-c" ng-class="{ 'market-active market-active-{{vm.model.subAccountTypeText.split(':')[2]}}':vm.defaultColor == $index+1 }" ng-repeat="item in vm.title" ng-click="vm.doRefreshChart($index+1)">{{ item.name }}</div>
+                <div class="otcTab-dl {{vm.model.subAccountTypeText.split(':')[2].split(',')[0]}} background-line" ng-style="vm.translatex"></div>
+            </div>
+        </div>
+        <div id="div_trend" class="item" ng-style="vm.trendBox" style="height: 400px;"></div>
+    </div>
+</ion-content>

@@ -145,8 +145,21 @@
             <h2 style="font-size: 17px;color: #444">{{vm.bankInfo.bankName}}</h2>
             <p style="font-size: 13px;">{{vm.bankInfo.nature}} | {{vm.bankInfo.bankCard}}</p>
         </div>
-
-        <div class="item-gap" ng-show="vm.pageElementCon.isCurrentUser"></div>
+        <div class="item item-icon-left" style="border-bottom: none" ng-show="vm.bankInfo.weichatPay!=null">
+            <i class="icon iconfont icon-aui-icon-weichat" style="color:#3cb035;font-size: 29px;"></i>
+            <label class="font-15" style="position: relative;top: -1px;">微信账号</label>
+            <div class="item-note">
+                {{vm.bankInfo.weichatPay}}
+            </div>
+        </div>
+        <div class="item item-icon-left" style="border-bottom: none" ng-show="vm.bankInfo.aliPay!=null">
+            <i class="icon iconfont icon-zhifubao" style="color:#008fe0;font-size: 28px;"></i>
+            <label class="font-15" style="position: relative;top: -1px;">支付宝账号</label>
+            <div class="item-note">
+                {{vm.bankInfo.aliPay}}
+            </div>
+        </div>
+        <div class="item-gap"></div>
         <div class="item" style="border-top: none" ng-show="vm.pageElementCon.isCurrentUser">
             <label style="font-weight: normal;">挂单人姓名</label>
             <div class="item-note-grey">{{vm.input.createrUserName}}</div>
@@ -155,7 +168,6 @@
             <label style="font-weight: normal;">挂单人电话</label>
             <div class="item-note-grey">{{vm.input.createrUserMobile}}</div>
         </div>
-        <div class="item-gap" ng-show="vm.pageElementCon.isCreaterUser"></div>
         <div class="item" style="border-top: none" ng-show="vm.pageElementCon.isCreaterUser">
             <label style="font-weight: normal;">交易人姓名</label>
             <div class="item-note-grey">{{vm.input.currentUserName}}</div>
@@ -164,8 +176,7 @@
             <label style="font-weight: normal;">交易人电话</label>
             <div class="item-note-grey">{{vm.input.currentUserMobile}}</div>
         </div>
-
-        <div class="item-gap"></div>
+        <div class="item-gap" ng-show="vm.pageElementCon.isCreaterUser||vm.pageElementCon.isCurrentUser"></div>
         <div class="item" style="border-top: none">
             <label style="font-weight: normal;">单号</label>
             <div class="item-note-grey">{{vm.input.sn}}</div>
@@ -195,12 +206,10 @@
             <!--<img style="border-radius: 50%;" width="30px" height="30px" ng-src="{{vm.model.imgAddr?vm.model.imgAddr:'app/platform/resources/img/logo.gif'}}">-->
             <!--</div>-->
             <i class="icon ion-chevron-right icon-accessory" style="width: 50px;padding-left: 18px">
-                <img style="border-radius: 10%;position: absolute;right: 50px;top: 4px;width: 45px;height: 45px;" ng-src="{{vm.model.imgAddr?vm.model.imgAddr:'app/platform/resources/img/wait.jpg'}}" ng-click="showBigImage(vm.model.imgAddr?vm.model.imgAddr:'app/platform/resources/img/wait.jpg')">
+                <img style="border-radius: 10%;position: absolute;right: 50px;top: 4px;width: 45px;height: 45px;" ng-src="{{vm.input.bankReceiptsPath?vm.input.bankReceiptsPath:'app/platform/resources/img/wait.jpg'}}" ng-click="showBigImage(vm.input.bankReceiptsPath?vm.input.bankReceiptsPath:'app/platform/resources/img/wait.jpg')">
                 <!--<img style="border-radius: 5%;position: absolute;right: 50px;top: 4px;width: 45px;height: 45px;" ng-src="{{vm.model.imgAddr?vm.model.imgAddr:'app/platform/resources/img/default_user_portrait.gif'}}">-->
             </i>
         </div>
-
-
         <div class="item-gap" ng-show="vm.pageElementCon.isOptions"></div>
         <div class="item item-input item-stacked-label withdraw write" style="border: none" ng-show="vm.pageElementCon.isOptions">
             <span class="input-label withdraw" style="font-weight: normal;">交易密码</span>

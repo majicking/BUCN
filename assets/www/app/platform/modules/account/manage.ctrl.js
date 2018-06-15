@@ -7,8 +7,8 @@
     /* Controllers */
     angular.module('app').controller('ManageCtrl', ManageCtrl);
 
-    ManageCtrl.$inject = ['$rootScope', '$scope','$ionicLoading','$sessionStorage','$ionicNativeTransitions', 'AccountService', 'MstrService', 'UploadService'];
-    function ManageCtrl($rootScope, $scope, $ionicLoading, $sessionStorage, $ionicNativeTransitions, AccountService, MstrService, UploadService) {
+    ManageCtrl.$inject = ['$rootScope', '$scope','$ionicLoading','$sessionStorage','$ionicNativeTransitions', 'AccountService', 'MstrService', 'UploadService', '$ionicPopup'];
+    function ManageCtrl($rootScope, $scope, $ionicLoading, $sessionStorage, $ionicNativeTransitions, AccountService, MstrService, UploadService, $ionicPopup) {
         var vm = this;
         vm.userId = $rootScope.userInfo.userId;
 
@@ -30,7 +30,9 @@
             imgAddr:$rootScope.userInfo.imgAddr,
             bizCredentialName:$rootScope.userInfo.bizCredentialName,
             bizCredentialNo:$rootScope.userInfo.bizCredentialNo,
-            bizLicenseNo:$rootScope.userInfo.bizLicenseNo
+            bizLicenseNo:$rootScope.userInfo.bizLicenseNo,
+            weichatPay:$rootScope.userInfo.weichatPay,
+            aliPay:$rootScope.userInfo.aliPay
         };
 
         if (vm.model.bankUsed != null) {
@@ -146,6 +148,8 @@
                 $rootScope.userInfo.bizCredentialName = $sessionStorage.userInfo.bizCredentialName = vm.model.bizCredentialName;
                 $rootScope.userInfo.bizCredentialNo = $sessionStorage.userInfo.bizCredentialNo = vm.model.bizCredentialNo;
                 $rootScope.userInfo.bizLicenseNo = $sessionStorage.userInfo.bizLicenseNo = vm.model.bizLicenseNo;
+                $rootScope.userInfo.weichatPay = $sessionStorage.userInfo.bizLicenseNo = vm.model.weichatPay;
+                $rootScope.userInfo.aliPay = $sessionStorage.userInfo.bizLicenseNo = vm.model.aliPay;
             }).error(function (error) {
             }).finally(function (error) {
                 $ionicLoading.hide();
@@ -173,30 +177,46 @@
         }
 
         function logout() {
-            var userType = $rootScope.userInfo.userType;
-            if ($sessionStorage.isLogged) {
-                $rootScope.isLogged = $sessionStorage.isLogged = false;
-                delete $sessionStorage.userInfo;
-                $rootScope.userInfo = {};
-                delete $sessionStorage.token;
-                $rootScope.token = null;
-            }
-            if (typeof WeixinJSBridge != "undefined"){
-                WeixinJSBridge.call('closeWindow')
-            }else{
-                if(userType=='0'){
-                    $ionicNativeTransitions.stateGo('welcome', {loginType:'left'}, {}, {
-                        "type": "slide",
-                        "direction": "up"
-                    });
-                }else{
-                    $ionicNativeTransitions.stateGo('welcome', {loginType:'right'}, {}, {
-                        "type": "slide",
-                        "direction": "up"
-                    });
-                }
+            $ionicPopup.show({
+                title: '<div class="f f-ac f-c">是否确认退出？</div>',
+                template: '',
+                buttons: [
+                    {
+                        text: '确定',
+                        type: 'button-balanced botton-radius',
+                        onTap: function(e) {
+                            var userType = $rootScope.userInfo.userType;
+                            if ($sessionStorage.isLogged) {
+                                $rootScope.isLogged = $sessionStorage.isLogged = false;
+                                delete $sessionStorage.userInfo;
+                                $rootScope.userInfo = {};
+                                delete $sessionStorage.token;
+                                $rootScope.token = null;
+                            }
+                            if (typeof WeixinJSBridge != "undefined"){
+                                WeixinJSBridge.call('closeWindow')
+                            }else{
+                                if(userType=='0'){ // welcome
+                                    $ionicNativeTransitions.stateGo('login', {loginType:'left'}, {}, {
+                                        "type": "slide",
+                                        "direction": "up"
+                                    });
+                                }else{
+                                    $ionicNativeTransitions.stateGo('login', {loginType:'right'}, {}, {
+                                        "type": "slide",
+                                        "direction": "up"
+                                    });
+                                }
 
-            }
+                            }
+                        }
+                    },
+                    {
+                        text: '取消',
+                        type: 'button-org botton-radius'
+                    },
+                ]
+            });
         }
 
         function getMasterList(type) {

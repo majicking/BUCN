@@ -223,8 +223,8 @@ body {
 }
 
 .bill-list-state.state-03 {
-     color: #ff3728;
- }
+    color: #ff3728;
+}
 
 .bill-list-state.state-04 {
     color: #0461A6;
@@ -336,10 +336,10 @@ body {
 }
 
 .item-note-blue {
-     float: right;
-     color: blue;
-     font-size: 14px;
- }
+    float: right;
+    color: blue;
+    font-size: 14px;
+}
 
 .item-note-dblue {
     float: right;
@@ -770,16 +770,16 @@ div.placeholder {
 }
 
 /*.block .money {*/
-    /*display: inline;*/
-    /*padding: .2em .6em .3em;*/
-    /*font-size: 70%;*/
-    /*font-weight: bold;*/
-    /*line-height: 1;*/
-    /*color: orange;*/
-    /*text-align: center;*/
-    /*white-space: nowrap;*/
-    /*vertical-align: baseline;*/
-    /*border-radius: .25em;*/
+/*display: inline;*/
+/*padding: .2em .6em .3em;*/
+/*font-size: 70%;*/
+/*font-weight: bold;*/
+/*line-height: 1;*/
+/*color: orange;*/
+/*text-align: center;*/
+/*white-space: nowrap;*/
+/*vertical-align: baseline;*/
+/*border-radius: .25em;*/
 /*}*/
 
 .block .money {
@@ -1597,6 +1597,14 @@ p{
     display:none;
 }
 
+.write .input-pay-ali {
+    display:none;
+}
+
+.write .input-pay-weichat {
+    display:none;
+}
+
 .write .input-del-referral {
     display:none;
 }
@@ -1643,6 +1651,8 @@ p{
 
 .input-del-entBank,
 .input-del-pwd,
+.input-pay-ali,
+.input-pay-weichat,
 .input-del-bankCard,
 .input-del-referral {
     position:absolute;
@@ -1667,18 +1677,18 @@ p{
 }
 
 .ionview_login {
-   /* background: url(../img/timg.jpg);
-    background-attachment: fixed;
-    background-position: right center;
-    background-position: right;
-    background-size: 100%;
-    overflow: hidden;
-    background: url(../img/timgZ.jpg) no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-position: -620px 0;*/
+    /* background: url(../img/timg.jpg);
+     background-attachment: fixed;
+     background-position: right center;
+     background-position: right;
+     background-size: 100%;
+     overflow: hidden;
+     background: url(../img/timgZ.jpg) no-repeat;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     background-position: -620px 0;*/
 
 }
 
@@ -2257,12 +2267,27 @@ span.fl_color_span{
 }
 
 .otcTab-bline{
-    /*width: 150px;*/
+    width: 100%;
     height: 3.5px;
-    background: #1b82d2;
+    background: transparent;
     position: absolute;
     bottom: -1px;
     transition: all .25s ease;
+}
+.otcTab-dl{
+    height: 3.5px;
+    position: absolute;
+    bottom: 1px;
+    transition: all .25s ease;
+    animation: mymove .45s linear forwards;
+}
+@keyframes mymove {
+    from {
+        width:0%;
+    }
+    to {
+        width: 25%;
+    }
 }
 ul.product_ulList{
     width: 100%;
@@ -2397,7 +2422,32 @@ input.NO_bgcolor_input{
     bottom:80px;
     left: 0px;
 }
-
+.market-ga{
+    padding: 13px 45px !important;
+}
+.market{
+    height: 50px;
+    padding: 0px 0px 0px;
+    position: relative;
+}
+.market-active{
+    background: #fff !important;
+    /*color: #1b82d2 !important;*/
+}
+.market-active.market-active-dblue{
+    color: #1b82d2 !important;
+}
+.market-title{
+    flex: 1;
+    height: 100%;
+    color: #999;
+    font-family: MicrosoftYaHei;
+}
+.price_color{
+    margin-top: 8px;
+    font-size: 30px;
+    color: #f68063;
+}
 .height_fitd{
     width: 50%;
     height: 50px;
