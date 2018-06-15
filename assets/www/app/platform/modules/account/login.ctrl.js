@@ -55,7 +55,7 @@
                 return;
             }
             $ionicLoading.show();
-            if (vm.loginType == 'left') {
+//            if (vm.loginType == 'left') {
                 UserService.login(
                     vm.username,
                     vm.password
@@ -72,23 +72,23 @@
                 }).finally(function(error){
                     $ionicLoading.hide();
                 })
-            } else {
-                UserService.loginForQiYe(
-                    vm.username,
-                    vm.password
-                ).success(function (data) {
-                    $rootScope.isLogged = $sessionStorage.isLogged = true;
-                    $rootScope.userInfo = $sessionStorage.userInfo = data;
-                    $rootScope.token = $sessionStorage.token = data.token;
-                    $ionicNativeTransitions.stateGo('tab.account', {}, {}, {
-                        "type": "slide",
-                        "direction": "down"
-                    });
-                }).error(function (error) {
-                }).finally(function(error){
-                    $ionicLoading.hide();
-                })
-            }
+//            } else {
+//                UserService.loginForQiYe(
+//                    vm.username,
+//                    vm.password
+//                ).success(function (data) {
+//                    $rootScope.isLogged = $sessionStorage.isLogged = true;
+//                    $rootScope.userInfo = $sessionStorage.userInfo = data;
+//                    $rootScope.token = $sessionStorage.token = data.token;
+//                    $ionicNativeTransitions.stateGo('tab.account', {}, {}, {
+//                        "type": "slide",
+//                        "direction": "down"
+//                    });
+//                }).error(function (error) {
+//                }).finally(function(error){
+//                    $ionicLoading.hide();
+//                })
+//            }
         }
         /*
         * 扫码注册

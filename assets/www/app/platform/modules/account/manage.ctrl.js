@@ -196,18 +196,17 @@
                             if (typeof WeixinJSBridge != "undefined"){
                                 WeixinJSBridge.call('closeWindow')
                             }else{
-                                if(userType=='0'){ // welcome
-                                    $ionicNativeTransitions.stateGo('login', {loginType:'left'}, {}, {
+                                if(userType=='0'){
+                                    $ionicNativeTransitions.stateGo('welcome', {loginType:'left'}, {}, {
                                         "type": "slide",
                                         "direction": "up"
                                     });
                                 }else{
-                                    $ionicNativeTransitions.stateGo('login', {loginType:'right'}, {}, {
+                                    $ionicNativeTransitions.stateGo('welcome', {loginType:'right'}, {}, {
                                         "type": "slide",
                                         "direction": "up"
                                     });
                                 }
-
                             }
                         }
                     },

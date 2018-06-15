@@ -28,29 +28,29 @@
 
         //登录效验
         function welComeLoginGoNativeBackParams(state, params){
-            //$cordovaScanning.commont("devices", "").then(function (data) {
-            //    $ionicLoading.show();
-            //    vm.uuid  = data;
-            //    WelcomeService.isHavePattern(vm.uuid).success(function (data) {
-            //        localStorage.setItem('userPortrait',data.userPortrait);
-            //        if(data.havePattern){
-            //            $ionicNativeTransitions.stateGo(state, params, {}, {
-            //                "type": "slide",
-            //                "direction": "right"
-            //            });
-            //            return false;
-            //        }else {
+            $cordovaScanning.commont("devices", "").then(function (data) {
+                $ionicLoading.show();
+                vm.uuid  = data;
+                WelcomeService.isHavePattern(vm.uuid).success(function (data) {
+                    localStorage.setItem('userPortrait',data.userPortrait);
+                    if(data.havePattern){
+                        $ionicNativeTransitions.stateGo(state, params, {}, {
+                            "type": "slide",
+                            "direction": "right"
+                        });
+                        return false;
+                    }else {
                         $ionicNativeTransitions.stateGo('login', params, {}, {
                             "type": "slide",
                             "direction": "right"
                         });
-            //            return false;
-            //        }
-            //    }).error(function (error) {
-            //    }).finally(function () {
-            //        $ionicLoading.hide();
-            //    });
-            //});
+                        return false;
+                    }
+                }).error(function (error) {
+                }).finally(function () {
+                    $ionicLoading.hide();
+                });
+            });
         }
 
         function getSlide() {

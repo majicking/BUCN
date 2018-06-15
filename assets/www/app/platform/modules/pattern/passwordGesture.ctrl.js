@@ -26,6 +26,7 @@
                     if(data.checkFlag == undefined){
                         $rootScope.isLogged = $sessionStorage.isLogged = true;
                         $rootScope.userInfo = $sessionStorage.userInfo = data;
+                        $rootScope.userInfo.subAccountTypeList = $sessionStorage.userInfo.subAccountTypeList = data.subAccountTypeList.list;
                         $rootScope.token = $sessionStorage.token = data.token;
                         $ionicNativeTransitions.stateGo('tab.account', {}, {}, {
                             "type": "slide",
