@@ -27,7 +27,7 @@
         </ul>
     </div>
 </ion-header-bar>
-<div class="tabs-striped tabs-top tabs-color-{{vm.model.subAccountTypeText.split(':')[2]}}" style="height: 49px;margin-top:44.5px;text-align: center">
+<div class="tabs-striped tabs-top tabs-color-{{vm.model.subAccountTypeText.split(':')[2]}}" style="height: 49px;margin-top:44px;text-align: center;position: relative;z-index: 999">
     <div class="tabs" style="top: 40px;position: static;">
         <div style="margin:0 auto; position: relative">
             <a class="after_action {{vm.model.subAccountTypeText.split(':')[2].split(',')[0]}}"  style="position: relative" ng-click="vm.otcTypeChanged(0)">卖出</a>
